@@ -1,0 +1,28 @@
+# rename command
+
+$ ls
+TMP/           algo_0016.cpp  algo_0023.cpp  algo_0027.cpp  algo_0030.cpp  algo_0071.cpp
+a.out*         algo_0021.cpp  algo_0024.cpp  algo_0028.cpp  algo_0069.cpp  algo_0072.cpp
+algo_0015.cpp  algo_0022.cpp  algo_0025.cpp  algo_0029.cpp  algo_0070.cpp  algo_0073.cpp
+$ ls | sed -n 's/^algo_\(.*\)\.cpp/mv \0 \1.cpp/p'
+mv algo_0015.cpp 0015.cpp
+mv algo_0016.cpp 0016.cpp
+mv algo_0021.cpp 0021.cpp
+mv algo_0022.cpp 0022.cpp
+mv algo_0023.cpp 0023.cpp
+mv algo_0024.cpp 0024.cpp
+mv algo_0025.cpp 0025.cpp
+mv algo_0027.cpp 0027.cpp
+mv algo_0028.cpp 0028.cpp
+mv algo_0029.cpp 0029.cpp
+mv algo_0030.cpp 0030.cpp
+mv algo_0069.cpp 0069.cpp
+mv algo_0070.cpp 0070.cpp
+mv algo_0071.cpp 0071.cpp
+mv algo_0072.cpp 0072.cpp
+mv algo_0073.cpp 0073.cpp
+$ !! | bash
+ls | sed -n 's/^algo_\(.*\)\.cpp/mv \0 \1.cpp/p' | bash
+$ ls
+0015.cpp  0021.cpp  0023.cpp  0025.cpp  0028.cpp  0030.cpp  0070.cpp  0072.cpp  TMP/
+0016.cpp  0022.cpp  0024.cpp  0027.cpp  0029.cpp  0069.cpp  0071.cpp  0073.cpp  a.out*x
