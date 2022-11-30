@@ -1,16 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <typename T>
-void printVec(vector<T> v) {
-    for(const auto& vi : v) {
-        cout << vi << " ";
-    }
-    cout << endl;
-}
-
-template <typename T>
-void quicksort(vector<T> &v) {
+void quicksort(vector<int> &v) {
     if(!v.size()) return;
 
     int n = v.size(), pivot = static_cast<int>(n/2);
@@ -39,13 +30,17 @@ void quicksort(vector<T> &v) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n,0); 
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n,0), x(m,0); 
     for(auto& ai : a) cin >> ai;
+    for(auto& xi : x) cin >> xi;
 
     quicksort(a);
-    printVec(a);
+
+    for(auto& xi : x) {
+        cout << a[xi] << endl;
+    }
 
     return 0;
 }
