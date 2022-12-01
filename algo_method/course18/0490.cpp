@@ -30,19 +30,20 @@ void quicksort(vector<int> &v) {
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    vector<int> a(n,0); 
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n,0);
     for(auto& ai : a) cin >> ai;
 
     quicksort(a);
 
-    long long sum = 0;
-    for(int i = n - m; i < n; ++ i) {
-        sum += a[i];
+    long long m = numeric_limits<long long>::max();
+    for(int i = 0; i <= n-k; ++i) {
+        long long diff = a[i+k-1]-a[i];
+        m = min(m, diff);
     }
 
-    cout << sum << endl;
+    cout << m << endl;
 
     return 0;
 }
